@@ -14,6 +14,8 @@
         android:layout_height="250dp"
         android:background="#efefef"
         android:maxLength="12"
+        android:padding="10dp"
+        android:gravity="end|bottom|center_vertical"
         android:textSize="48sp" />
 
     <!--    Row1-->
