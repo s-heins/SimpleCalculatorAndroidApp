@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.ArithmeticException
+import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +45,9 @@ class MainActivity : AppCompatActivity() {
         val text = tvDisplay.text.toString()
         if (textEndsWithDigit(text)) {
             try {
-                tvDisplay.text = calculateSubtotal(text).toString()
+                val subtotal = calculateSubtotal(text)
+                tvDisplay.text = if (subtotal % 1 == 0.0) subtotal.roundToInt()
+                    .toString() else subtotal.toString()
             } catch (e: ArithmeticException) {
                 e.printStackTrace()
             }
